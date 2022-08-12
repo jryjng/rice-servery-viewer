@@ -1,0 +1,82 @@
+body{
+    background-color: white;
+}
+
+/* Banner */
+#banner{
+    color: black;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-bottom: 0.1rem solid black;
+}
+
+#head-text{
+    font-size: 3.5vw;
+    margin-right: 1%;
+}
+
+#date-text{
+    font-size: 1.5vw;
+}
+
+
+/* Table */
+table {
+    border-spacing: 0;
+    border: 0.1rem solid;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 1.2vw;
+}
+
+/* Header */
+.serveries{
+    background-color: #001e6b;
+    color:white;
+    border: 0.1rem solid black;
+    font-size: 1.3vw;
+}
+
+.serveries th{
+    border: 0.1rem solid black;
+}
+
+
+/* First Column */
+.row-menu:nth-child(even) td:nth-child(1){
+    border: 0.1rem solid black;
+    font-weight: bold;
+    width: 12%;
+}
+
+.row-menu:nth-child(odd) td:nth-child(1){
+    border: 0.1rem solid black;
+    font-weight: bold;
+    width: 12%;
+}
+
+
+/* Not First Column */
+.row-menu:nth-child(even) td:nth-child(n+2){
+    background-color: lightgray;
+    border: 0.01rem solid black;
+}
+
+.row-menu:nth-child(odd) td:nth-child(n+2){
+    background-color: rgb(179, 176, 176);
+    border: 0.01rem solid black;
+}
+
+
+/* Text Element Inside Cell */
+table p {
+    margin: 0;
+    margin-left: 1%;
+}
+
+
+/* Hover Effect */
+#priority .row-menu:hover td{
+    background-color: lightblue;
+}
