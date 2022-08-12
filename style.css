@@ -16,32 +16,34 @@ body{
 #head-text{
     font-size: max(18px, 3.6vw);
     margin-right: 1%;
-    margin-top: auto;
 }
 
 #date-text{
     font-size: max(14px, 1.6vw);
+}
+
+#banner-text{
     margin-top: auto;
     flex: auto;
 }
 
+.dietrow{
+    display: flex;
+    align-items: stretch;
+}
+
 .diet{
     flex: 1 1 auto;
-    max-width: max(25px, 6vw);
-    background-color: green;
+    max-width: max(30px, 6vw);
+    background-color: rgb(116, 98, 237);
     color: white;
-    margin-bottom: 0.4%;
-    border-radius: 6px;
     font-weight: bold;
     font-size: max(5px, 1.2vw);
 }
 
-.diet:hover{
-    color: black;
-    background-color: white;
-    transition: background-color 0.5s;
+.diet.selected{
+    background-color:green;
 }
-
 
 /* Table */
 table {
@@ -57,12 +59,12 @@ th, td{
 }
 
 /* Scrollbar */
-#test {
+.scroll {
     overflow: scroll;
     scrollbar-width: none;
 }
 
-#test::-webkit-scrollbar { 
+.scroll::-webkit-scrollbar { 
     width: 0;
     height: 0;
 }
@@ -81,22 +83,20 @@ th, td{
 
 
 /* First Column */
-.row-menu:nth-child(even) td:nth-child(1){
+#priority .row-menu:nth-child(even) td:nth-child(1){
     background-color: lightgray;
     border: 0.1rem solid black;
     font-weight: bold;
-    width: 12%;
     text-align: center;
-    min-width: 100px;
+    min-width: 50px;
 }
 
-.row-menu:nth-child(odd) td:nth-child(1){
+#priority .row-menu:nth-child(odd) td:nth-child(1){
     background-color: lightgray;
     border: 0.1rem solid black;
     font-weight: bold;
-    width: 12%;
     text-align: center;
-    min-width: 100px;
+    min-width: 50px;
 }
 
 .subtext{

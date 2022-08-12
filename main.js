@@ -7,6 +7,42 @@ const LUNCHTIME_SUNDAY = "11am-1pm";
 const DINNERTIME_SUNDAY = "5-7:30pm";
 const ENDLUNCH = 14;     // Lunch ends at 2pm
 
+// JS added style sheets
+let styleSheets = {};
+
+// Turn on a diet tag
+function tagFocus(tag){
+    let rule = `${tag}{font-style: italic; background-color: yellow;}`
+    // If the style doesn't exist, create it
+    if(!styleSheets[tag]){
+        let styleSheet = document.createElement("style");
+        styleSheet.innerText = rule;
+        document.head.appendChild(styleSheet);
+        styleSheets[tag] = styleSheet;
+    }else{
+        styleSheets[tag].innerText = rule;
+    }
+}
+
+// Turn off a diet tag
+function disableTagFocus(tag){
+    styleSheets[tag].innerText = `${tag}{}`;
+}
+
+// Trigger event to toggle a diet style
+function dietEvent(button){
+    let target = button.currentTarget;
+    if(target.classList.contains("selected")){
+        target.classList.remove("selected");
+        disableTagFocus(target.id);
+
+    }else{
+        target.classList.add("selected");
+        tagFocus(target.id);
+    }
+
+}
+
 
 // Time info
 let now = new Date();
@@ -15,6 +51,12 @@ let timeValue = now.getDay() * 2 + (isDinner ? 1 : 0);
 
 // Set the date
 document.querySelector("#date").textContent = data[0].week;
+
+// Add action listeners to buttons
+let buttons = document.querySelector(".dietrow").children;
+for(let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener("click", e=>dietEvent(e));
+}
 
 // Loop through the rows
 let menus = document.querySelectorAll(".row-menu");
