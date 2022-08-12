@@ -6,162 +6,161 @@
     <script src="main.js" defer></script>
     <script type="text/javascript" src="dat.js"></script>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rice Servery Monitor</title>
 </head>
 <body>
   <div class="scroll">
-  <div id="banner">
-    <span id="banner-text">
-      <span id="head-text">Servery Weekly View</span>
-      <span id="date-text">
-        <span>Week of</span>
-        <span id="date">1/1</span>
+    <div id="banner">
+      <span id="banner-text">
+        <span id="head-text">Servery Weekly View</span>
+        <span id="date-text">
+          <span>Week of</span>
+          <span id="date">1/1</span>
+        </span>
+        <span id="right-banner">Servery times here are placeholders</span>
       </span>
-      <span id="right-banner">Servery times here are placeholders</span>
-    </span>
-  </div>
-  <div>
-    <table id="priority" width="96%">
-      <colgroup>
-        <col id="time-col">
-      </colgroup>
-      <tr class="serveries">
-        <th></td>
-        <th>Seibel</td>
-        <th>South</td>
-        <th>West</td>
-        <th>Baker</td>
-        <th>North</td>
-      </tr>
-      <div>
-        <tr class="row-menu">
-          <td>Sunday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
+    </div>
+    <div>
+      <table id="priority" width="96%">
+        <colgroup>
+          <col id="time-col">
+        </colgroup>
+        <tr class="serveries">
+          <th></td>
+          <th>Seibel</td>
+          <th>South</td>
+          <th>West</td>
+          <th>Baker</td>
+          <th>North</td>
         </tr>
-        <tr class="row-menu">
-          <td>Sunday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Monday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Monday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Tuesday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Tuesday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Wednesday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Wednesday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Thursday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Thursday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Friday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Friday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Saturday Lunch</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-        <tr class="row-menu">
-          <td>Saturday Dinner</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-          <td>---sample---</td>
-        </tr>
-      </div>
-    </table>
-  </div>
-  <div class="dietrow">
-    <button id=".milk" class="diet">Milk</button>
-    <button id=".glut" class="diet">Gltn</button>
-    <button id=".nuts" class="diet">Nuts</button>
-    <button id=".tnut" class="diet">Tnut</button>
-    <button id=".vega" class="diet">Vegn</button>
-    <button id=".vegt" class="diet">Vegt</button>
-    <button id=".fish" class="diet">Fish</button>
-    <button id=".shlf" class="diet">Shlf</button>
-    <button id=".eggs" class="diet">Eggs</button>
-    <button id=".soy" class="diet">Soy</button>
-  </div>
+        <div>
+          <tr class="row-menu">
+            <td>Sunday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Sunday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Monday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Monday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Tuesday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Tuesday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Wednesday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Wednesday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Thursday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Thursday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Friday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Friday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Saturday Lunch</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+          <tr class="row-menu">
+            <td>Saturday Dinner</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+            <td>---sample---</td>
+          </tr>
+        </div>
+      </table>
+    </div>
+    <div class="dietrow">
+      <button id=".milk" class="diet">Milk</button>
+      <button id=".glut" class="diet">Gltn</button>
+      <button id=".nuts" class="diet">Nuts</button>
+      <button id=".tnut" class="diet">Tnut</button>
+      <button id=".vega" class="diet">Vegn</button>
+      <button id=".vegt" class="diet">Vegt</button>
+      <button id=".fish" class="diet">Fish</button>
+      <button id=".shlf" class="diet">Shlf</button>
+      <button id=".eggs" class="diet">Eggs</button>
+      <button id=".soy" class="diet">Soy</button>
+    </div>
   </div>
 </body>
 </html>
