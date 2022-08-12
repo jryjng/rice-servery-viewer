@@ -12,12 +12,12 @@ body{
 }
 
 #head-text{
-    font-size: max(14px, 3.6vw);
+    font-size: max(18px, 3.6vw);
     margin-right: 1%;
 }
 
 #date-text{
-    font-size: max(6px, 1.4vw);
+    font-size: max(12px, 1.4vw);
 }
 
 #banner-text{
@@ -26,9 +26,10 @@ body{
 
 #right-banner{
     font-style: italic;
-    font-size: max(6px, 1.4vw);
+    font-size: max(12px, 1.4vw);
     margin-top: auto;
     margin-left: 1%;
+    white-space: nowrap ;
 }
 
 
@@ -122,19 +123,21 @@ li {
 
 /* Bottom */
 .dietrow{
-    height: 50px;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
 }
 
 .diet{
+    height: 50px;
+    min-width: 50px;
     flex: 1 1 auto;
     max-width: max(30px, 6vw);
-    background-color: rgb(116, 98, 237);
+    background-color: #001e6b;
     color: white;
     font-weight: bold;
-    font-size: max(5px, 1.2vw);
+    font-size: max(8px, 1.2vw);
+    border: solid black;
 }
 
 .diet.selected{
