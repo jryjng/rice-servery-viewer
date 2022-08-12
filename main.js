@@ -1,14 +1,17 @@
-// From dat.js contains data (array)
-// Lunch ends at 2pm?
-const DINNER = 14;
+// Food times
+const LUNCHTIME_WEEKDAY = "11am-1pm";
+const DINNERTIME_WEEKDAY = "5-7:30pm";
+const LUNCHTIME_SATURDAY = "11am-1pm";
+const DINNERTIME_SATURDAY = "5-7:30pm";
+const LUNCHTIME_SUNDAY = "11am-1pm";
+const DINNERTIME_SUNDAY = "5-7:30pm";
+const ENDLUNCH = 14;     // Lunch ends at 2pm
 
+
+// Time info
 let now = new Date();
-// Time priority
-let isDinner = now.getHours() > DINNER;
+let isDinner = now.getHours() > ENDLUNCH;
 let timeValue = now.getDay() * 2 + (isDinner ? 1 : 0); 
-
-// TMP TESTING
-// timeValue = 0;
 
 // Set the date
 document.querySelector("#date").textContent = data[0].week;
@@ -27,6 +30,46 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
 
     // Update the current row
     let serveries = currentElem.children;
+
+    // Insert times for mealtimes
+    // Use switch-case because this can change a lot
+    let schedule = "";
+    switch(timeIdx){
+        case 0: // Sunday Lunch
+            schedule = LUNCHTIME_SUNDAY;
+            break;
+        case 2: // Monday Lunch
+        case 4:
+        case 6:
+        case 8:
+        case 10: // Friday Lunch
+            schedule = LUNCHTIME_WEEKDAY;
+            break;
+        case 12: // Saturday Lunch
+            schedule = LUNCHTIME_SATURDAY;
+            break;
+        case 1:  // Sunday Dinner
+            schedule = DINNERTIME_SUNDAY;
+            break;
+        case 3:  // Monday Lunch
+        case 5:
+        case 7:
+        case 9:
+        case 11: // Friday Dinner
+            schedule = DINNERTIME_WEEKDAY;
+            break;
+        case 13: // Saturday Dinner
+            schedule = DINNERTIME_SATURDAY;
+            break;
+        default:
+            schedule = "???";
+    }
+    let mealtime = document.createElement("div");
+    mealtime.textContent = schedule;
+    mealtime.classList.add("subtext")
+    serveries[0].appendChild(mealtime);
+    
+    // Update the menu for serveries
     for(let serveryIdx = 1; serveryIdx < serveries.length; serveryIdx++){
         // Clear original text content
         serveries[serveryIdx].textContent = "";
@@ -34,7 +77,7 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
         // Get the menu for the servery at the specified time
         // [servery][mealtime][day][menu][food][type/food]
         let menu = null;
-        if (isDinner){
+        if (timeIdx % 2 == 1){
             menu = data[serveryIdx - 1]["dinner"][Math.floor(timeIdx / 2)];
         }else{
             menu = data[serveryIdx - 1]["lunch"][Math.floor(timeIdx / 2)];
