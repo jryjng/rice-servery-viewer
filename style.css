@@ -13,12 +13,12 @@ body{
 }
 
 #head-text{
-    font-size: 3.6vw;
+    font-size: max(14px, 3.6vw);
     margin-right: 1%;
 }
 
 #date-text{
-    font-size: 1.6vw;
+    font-size: max(8px, 1.6vw);
 }
 
 
@@ -28,15 +28,30 @@ table {
     border: 0.1rem solid;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: 1.25vw;
+    font-size: max(10px, 1.25vw);
 }
+
+th, td{
+    min-width: 90px; 
+}
+
+/* Scrollbar */
+#test {
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#test::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
+
 
 /* Header */
 .serveries{
     background-color: #001e6b;
     color:white;
     border: 0.1rem solid black;
-    font-size: 1.4vw;
 }
 
 .serveries th{
@@ -61,7 +76,6 @@ table {
 
 
 
-
 /* Not First Column */
 .row-menu:nth-child(even) td:nth-child(n+2){
     border: 0.01rem solid black;
@@ -74,18 +88,18 @@ table {
 
 /* Text Element Inside Cell */
 ul {
-    list-style-position: outside;
-    margin: 0;
-    padding-left: 10%;
+    margin: 0%;
+    padding: 0%;
 }
 
 li {
-    margin: 5% 10% 5% 0;
+    margin: 8% 10% 8% 0%;
+    margin-left: max(10px, 10%);
 }
 
 
 
 /* Hover Effect */
-#priority .row-menu td:hover{
+#priority .row-menu td:active, #priority .row-menu td:hover{
     background-color: lightblue;
 }

@@ -8,7 +8,7 @@ let isDinner = now.getHours() > DINNER;
 let timeValue = now.getDay() * 2 + (isDinner ? 1 : 0); 
 
 // TMP TESTING
-timeValue = 0;
+// timeValue = 0;
 
 // Set the date
 document.querySelector("#date").textContent = data[0].week;
