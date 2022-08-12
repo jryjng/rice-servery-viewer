@@ -5,45 +5,32 @@ body{
 
 /* Banner */
 #banner{
-    display: flex;
     color: black;
     margin-top: 2%;
     margin-left: 2%;
     margin-right: 2%;
-    align-items: stretch;
 }
 
 #head-text{
-    font-size: max(18px, 3.6vw);
+    font-size: max(14px, 3.6vw);
     margin-right: 1%;
 }
 
 #date-text{
-    font-size: max(14px, 1.6vw);
+    font-size: max(6px, 1.4vw);
 }
 
 #banner-text{
     margin-top: auto;
-    flex: auto;
 }
 
-.dietrow{
-    display: flex;
-    align-items: stretch;
+#right-banner{
+    font-style: italic;
+    font-size: max(6px, 1.4vw);
+    margin-top: auto;
+    margin-left: 1%;
 }
 
-.diet{
-    flex: 1 1 auto;
-    max-width: max(30px, 6vw);
-    background-color: rgb(116, 98, 237);
-    color: white;
-    font-weight: bold;
-    font-size: max(5px, 1.2vw);
-}
-
-.diet.selected{
-    background-color:green;
-}
 
 /* Table */
 table {
@@ -128,10 +115,28 @@ li {
     margin-left: max(20px, 10%);
 }
 
-
-
 /* Hover Effect */
 #priority .row-menu td:hover{
     background-color: lightblue;
 }
 
+/* Bottom */
+.dietrow{
+    height: 50px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.diet{
+    flex: 1 1 auto;
+    max-width: max(30px, 6vw);
+    background-color: rgb(116, 98, 237);
+    color: white;
+    font-weight: bold;
+    font-size: max(5px, 1.2vw);
+}
+
+.diet.selected{
+    background-color:green;
+}
