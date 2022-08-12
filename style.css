@@ -5,19 +5,41 @@ body{
 
 /* Banner */
 #banner{
+    display: flex;
     color: black;
     margin-top: 2%;
     margin-left: 2%;
     margin-right: 2%;
+    align-items: stretch;
 }
 
 #head-text{
     font-size: max(18px, 3.6vw);
     margin-right: 1%;
+    margin-top: auto;
 }
 
 #date-text{
     font-size: max(14px, 1.6vw);
+    margin-top: auto;
+    flex: auto;
+}
+
+.diet{
+    flex: 1 1 auto;
+    max-width: max(25px, 6vw);
+    background-color: green;
+    color: white;
+    margin-bottom: 0.4%;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: max(5px, 1.2vw);
+}
+
+.diet:hover{
+    color: black;
+    background-color: white;
+    transition: background-color 0.5s;
 }
 
 
@@ -27,11 +49,11 @@ table {
     border: 0.1rem solid;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: max(10px, 1.25vw);
+    font-size: max(12px, 1.25vw);
 }
 
 th, td{
-    min-width: 90px; 
+    min-width: 150px; 
 }
 
 /* Scrollbar */
@@ -103,13 +125,13 @@ ul {
 
 li {
     margin: 8% 10% 8% 0%;
-    margin-left: max(15px, 10%);
+    margin-left: max(20px, 10%);
 }
 
 
 
 /* Hover Effect */
-#priority .row-menu td:active, #priority .row-menu td:hover{
+#priority .row-menu td:hover{
     background-color: lightblue;
 }
 
