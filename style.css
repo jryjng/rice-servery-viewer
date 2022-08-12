@@ -1,5 +1,6 @@
 body{
     background-color: white;
+    font-family: Verdana, sans-serif;
 }
 
 /* Banner */
@@ -12,12 +13,12 @@ body{
 }
 
 #head-text{
-    font-size: 3.5vw;
+    font-size: 3.6vw;
     margin-right: 1%;
 }
 
 #date-text{
-    font-size: 1.5vw;
+    font-size: 1.6vw;
 }
 
 
@@ -27,7 +28,7 @@ table {
     border: 0.1rem solid;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: 1.2vw;
+    font-size: 1.25vw;
 }
 
 /* Header */
@@ -35,7 +36,7 @@ table {
     background-color: #001e6b;
     color:white;
     border: 0.1rem solid black;
-    font-size: 1.3vw;
+    font-size: 1.4vw;
 }
 
 .serveries th{
@@ -45,38 +46,46 @@ table {
 
 /* First Column */
 .row-menu:nth-child(even) td:nth-child(1){
+    background-color: lightgray;
     border: 0.1rem solid black;
     font-weight: bold;
     width: 12%;
 }
 
 .row-menu:nth-child(odd) td:nth-child(1){
+    background-color: lightgray;
     border: 0.1rem solid black;
     font-weight: bold;
     width: 12%;
 }
 
 
+
+
 /* Not First Column */
 .row-menu:nth-child(even) td:nth-child(n+2){
-    background-color: lightgray;
     border: 0.01rem solid black;
 }
 
 .row-menu:nth-child(odd) td:nth-child(n+2){
-    background-color: rgb(179, 176, 176);
     border: 0.01rem solid black;
 }
 
 
 /* Text Element Inside Cell */
-table p {
+ul {
+    list-style-position: outside;
     margin: 0;
-    margin-left: 1%;
+    padding-left: 10%;
+}
+
+li {
+    margin: 5% 10% 5% 0;
 }
 
 
+
 /* Hover Effect */
-#priority .row-menu:hover td{
+#priority .row-menu td:hover{
     background-color: lightblue;
 }

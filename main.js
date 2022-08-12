@@ -1,13 +1,8 @@
 // From dat.js contains data (array)
-
 // Lunch ends at 2pm?
 const DINNER = 14;
 
 let now = new Date();
-
-// Test
-console.log(now);
-
 // Time priority
 let isDinner = now.getHours() > DINNER;
 let timeValue = now.getDay() * 2 + (isDinner ? 1 : 0); 
@@ -45,16 +40,21 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
             menu = data[serveryIdx - 1]["lunch"][Math.floor(timeIdx / 2)];
         }
 
+        // Use another parent?
+        let parent = document.createElement("ul");
+        // let parent = serveries[serveryIdx];
+
         // Create an element from each menu
         // The first entry will contain text. Everything else is part of its class
         for(let foodIdx = 0; foodIdx < menu.length; foodIdx++){
-            let elem = document.createElement("p");
+            let elem = document.createElement("li");
             let food = menu[foodIdx];
             elem.textContent = food[0];
             for(let classIdx = 1; classIdx < food.length; classIdx++){
                 elem.classList.add(food[classIdx]);
             }
-            serveries[serveryIdx].appendChild(elem);
+            parent.appendChild(elem);
         }
+        serveries[serveryIdx].appendChild(parent);
     }
 }
