@@ -124,20 +124,19 @@ li {
 /* Bottom */
 .dietrow{
     margin-left: 2%;
+    margin-right: 2%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    height: 100px;
 }
 
 .diet{
-    height: 50px;
-    min-width: 50px;
     flex: 1 1 auto;
-    max-width: max(30px, 6vw);
     background-color: #001e6b;
     color: white;
     font-weight: bold;
-    font-size: max(8px, 1.2vw);
+    font-size: max(12px, 1.4vw);
     border: solid black;
 }
 
