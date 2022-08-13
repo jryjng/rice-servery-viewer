@@ -133,6 +133,7 @@ li {
 
 .diet{
     flex: 1 1 auto;
+    margin: 0;
     background-color: #001e6b;
     color: white;
     font-weight: bold;
