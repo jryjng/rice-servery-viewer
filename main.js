@@ -47,7 +47,8 @@ function dietEvent(button){
 // Time info
 let now = new Date();
 let isDinner = now.getHours() > ENDLUNCH;
-let timeValue = now.getDay() * 2 + (isDinner ? 1 : 0); 
+// Adjust time such that sunday is last.
+let timeValue = (now.getDay() * 2 + (isDinner ? 1 : 0) + 12) % 14; 
 
 // Set the date
 document.querySelector("#date").textContent = data[0].week;
