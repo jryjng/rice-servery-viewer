@@ -4,17 +4,25 @@ import { launch } from "puppeteer";
 import dotenv from "dotenv";
 
 class ServeryMenu{
-    week = 0;
+    week = "";
     lunch = [];
     dinner = [];
     name = "";
 
     constructor(name){
-        let today = new Date();
-        let next = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000)
-        this.week = `${1 + today.getMonth()}/${today.getDate() - today.getDay() + 1} - ${
-            1 + next.getMonth()}/${next.getDate() - next.getDate() + 1}`;
+        // Set the name
         this.name = name;
+        
+        // Set the time
+        const DAY = 24 * 60 * 60 * 1000;
+        let today = new Date();
+        
+        // Get the last and next Monday
+        let change_days = (today.getDay() + 6) % 7;
+        let l_monday = new Date(today.getTime() - change_days * DAY);
+        let n_monday = new Date(l_monday.getTime() + 7 * DAY);
+
+        this.week = `${l_monday.getMonth() + 1}/${l_monday.getDate()}-${n_monday.getMonth() + 1}/${n_monday.getDate()}`;
     }
 
     // Reads a ServeryMenu Object
@@ -144,4 +152,3 @@ export async function main(){
 
 }
 await main();
-
