@@ -13,7 +13,7 @@ class ServeryMenu{
         let today = new Date();
         let next = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000)
         this.week = `${1 + today.getMonth()}/${today.getDate() - today.getDay() + 1} - ${
-            1 + next.getMonth}/${next.getDate() - next.getDate() + 1}`;
+            1 + next.getMonth()}/${next.getDate() - next.getDate() + 1}`;
         this.name = name;
     }
 
