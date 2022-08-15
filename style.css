@@ -117,8 +117,13 @@ li {
 }
 
 /* Hover Effect */
-#priority .row-menu td:hover{
+.row-menu td:hover{
     background-color: lightblue;
+}
+
+/* Clikc effect */
+#priority .clicked{
+    background-color: lightgreen;
 }
 
 /* Bottom */

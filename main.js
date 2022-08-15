@@ -40,7 +40,16 @@ function dietEvent(button){
         target.classList.add("selected");
         tagFocus(target.id);
     }
+}
 
+// Highlight toggle effect
+function highlightClickEvent(element){
+    let target = element.currentTarget;
+    if(target.classList.contains("clicked")){
+        target.classList.remove("clicked");
+    }else{
+        target.classList.add("clicked");
+    }
 }
 
 
@@ -142,5 +151,8 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
             parent.appendChild(elem);
         }
         serveries[serveryIdx].appendChild(parent);
+        
+        // Add the highlight event
+        serveries[serveryIdx].addEventListener("click", e=>highlightClickEvent(e));
     }
 }
