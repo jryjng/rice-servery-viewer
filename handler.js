@@ -20,9 +20,9 @@ class ServeryMenu{
         // Get the last and next Monday
         let change_days = (today.getDay() + 6) % 7;
         let l_monday = new Date(today.getTime() - change_days * DAY);
-        let n_monday = new Date(l_monday.getTime() + 7 * DAY);
+        let n_sunday = new Date(l_monday.getTime() + 6 * DAY);
 
-        this.week = `${l_monday.getMonth() + 1}/${l_monday.getDate()}-${n_monday.getMonth() + 1}/${n_monday.getDate()}`;
+        this.week = `${l_monday.getMonth() + 1}/${l_monday.getDate()}-${n_sunday.getMonth() + 1}/${n_sunday.getDate()}`;
     }
 
     // Reads a ServeryMenu Object
