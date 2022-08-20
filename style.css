@@ -195,10 +195,11 @@ li {
 
 #schedule-pic{    
     display: block;
-    margin-top: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 70%;
 }
 
 .invisible{
