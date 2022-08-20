@@ -4,7 +4,6 @@ import { launch } from "puppeteer";
 import dotenv from "dotenv";
 
 class ServeryMenu{
-    week = "";
     lunch = [];
     dinner = [];
     name = "";
@@ -12,17 +11,6 @@ class ServeryMenu{
     constructor(name){
         // Set the name
         this.name = name;
-        
-        // Set the time
-        const DAY = 24 * 60 * 60 * 1000;
-        let today = new Date();
-        
-        // Get the last and next Monday
-        let change_days = (today.getDay() + 6) % 7;
-        let l_monday = new Date(today.getTime() - change_days * DAY);
-        let n_sunday = new Date(l_monday.getTime() + 6 * DAY);
-
-        this.week = `${l_monday.getMonth() + 1}/${l_monday.getDate()}-${n_sunday.getMonth() + 1}/${n_sunday.getDate()}`;
     }
 
     // Reads a ServeryMenu Object
@@ -62,7 +50,6 @@ class ServeryMenu{
                                     case "icons icon-only icons-vegetarian": return "vegt";
                                     default: return "?";
                                 }
-                                return iconString(elem.getAttribute("class"));
                             }
                             // Case: normal entry
                             return elem.textContent;
@@ -87,6 +74,33 @@ class ServeryMenu{
     // Accepts ServeryMenu items
     static toData(list){
         return btoa(`data=${JSON.stringify(list)};`);
+    }
+
+    // Get the header links present on the head
+    static async getServeryHeaders(browser){
+        const homepage = await browser.newPage();
+        await homepage.goto("https://dining.rice.edu/");
+        let allLinks = []
+        let links = await homepage.$$(".alert a")
+        for(let i = 0; i < links.length; i++){
+            let item = await page.evaluate(elem => {
+                return [elem.textContent, elem.getAttribute("href")]
+            }, links[i]);
+            allLinks.push(item)
+        }
+        return allLinks;
+    }
+
+    // Get the date that the menu will span
+    static getDate(){
+        const DAY = 24 * 60 * 60 * 1000;
+        let today = new Date();
+        
+        // Get the last and next Monday
+        let change_days = (today.getDay() + 6) % 7;
+        let l_monday = new Date(today.getTime() - change_days * DAY);
+        let n_sunday = new Date(l_monday.getTime() + 6 * DAY);
+        return `${l_monday.getMonth() + 1}/${l_monday.getDate()}-${n_sunday.getMonth() + 1}/${n_sunday.getDate()}`;      
     }
 
     addLunchMenu(menu){
@@ -136,18 +150,36 @@ export async function main(){
     ["West", "https://dining.rice.edu/west-servery/full-week-menu"],
     ["Baker", "https://dining.rice.edu/baker-college-kitchen/full-week-menu"],
     ["North", "https://dining.rice.edu/north-servery/full-week-menu"]];
+
+  // Populate this object  
+  let serveryMaster = {
+    date: undefined,
+    serveries: undefined,
+    links: undefined
+  };  
+
+  // Populate date
+  serveryMaster.date = ServeryMenu.getDate();
+
+  // Populate serveries
   let serveriesObj = [];
   const browser = await launch({});
   for(let servery of serveries){
     serveriesObj.push(await ServeryMenu.readServery(browser, servery[0], servery[1]));
     console.log(`${servery[0]} complete`)
   }
+  serveryMaster.serveries = serveriesObj;
+
+  // Populate links
+  serveryMaster.links = ServeryMenu.getServeryHeader(browser);
+  
+
   browser.close();
 
   // Convert serviesObj into a javascript expression
   // Send the file to github in base64
   dotenv.config();
-  writeToGithub(ServeryMenu.toData(serveriesObj), 
+  writeToGithub(ServeryMenu.toData(serveryMaster), 
   'jryjng', 'rice-servery-viewer', 'dat.js', process.env.BOT_GITHUB_KEY);
 
 }

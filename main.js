@@ -71,7 +71,7 @@ let isDinner = now.getHours() > ENDLUNCH;
 let timeValue = (now.getDay() * 2 + (isDinner ? 1 : 0) + 12) % 14; 
 
 // Set the date
-document.querySelector("#date").textContent = data[0].week;
+document.querySelector("#date").textContent = data.date;
 
 // Add action listeners to buttons
 let buttons = document.querySelector(".dietrow").children;
@@ -141,9 +141,9 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
         // [servery][mealtime][day][menu][food][type/food]
         let menu = null;
         if (timeIdx % 2 == 1){
-            menu = data[serveryIdx - 1]["dinner"][Math.floor(timeIdx / 2)];
+            menu = data.serveries[serveryIdx - 1]["dinner"][Math.floor(timeIdx / 2)];
         }else{
-            menu = data[serveryIdx - 1]["lunch"][Math.floor(timeIdx / 2)];
+            menu = data.serveries[serveryIdx - 1]["lunch"][Math.floor(timeIdx / 2)];
         }
 
         // Use another parent?
