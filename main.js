@@ -1,11 +1,22 @@
 // Food times
-const LUNCHTIME_WEEKDAY = "11am-1pm";
-const DINNERTIME_WEEKDAY = "5-7:30pm";
-const LUNCHTIME_SATURDAY = "11am-1pm";
-const DINNERTIME_SATURDAY = "5-7:30pm";
-const LUNCHTIME_SUNDAY = "11am-1pm";
-const DINNERTIME_SUNDAY = "5-7:30pm";
-const ENDLUNCH = 14;     // Lunch ends at 2pm
+const LUNCHTIME_WEEKDAY = "11:30am-1:30pm";
+const DINNERTIME_WEEKDAY = "5:30pm-7:30pm";
+const LUNCHTIME_SATURDAY = "11:30am-2:00pm";
+const DINNERTIME_SATURDAY = "5:00pm-7:30pm";
+const LUNCHTIME_SUNDAY = "11:30am-2:00pm";
+const DINNERTIME_SUNDAY = "5:00pm-7:30pm";
+
+// Munch and Breakfeast
+const BREAKFEAST_WEEKDAY = "7:30am-10:00am"
+const BREAKFEAST_WEEKEND = "8:00am-10:30am"
+const MUNCH_WEEKDAY = "2:15pm-4:15pm"
+
+// Lunch cutoff will be at 2pm
+// Munch cutoff will be at 5pm
+// Dinner cutoff will be at 8pm
+const ENDLUNCH = 13;
+const ENDMUNCH = 16;
+const ENDDINNER = 19;
 
 // JS added style sheets
 let styleSheets = {};
