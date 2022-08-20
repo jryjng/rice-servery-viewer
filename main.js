@@ -63,6 +63,21 @@ function highlightClickEvent(element){
     }
 }
 
+// Alert event
+function alertEvent(element){
+    let button = element.currentTarget;
+    window.open(button.getAttribute("href"));
+}
+
+function scheduleToggleEvent(){
+    let target = document.querySelector("#image-container");
+    if(target.classList.contains("invisible")){
+        target.classList.remove("invisible");
+    }else{
+        target.classList.add("invisible");
+    }
+}
+
 
 // Time info
 let now = new Date();
@@ -73,11 +88,26 @@ let timeValue = (now.getDay() * 2 + (isDinner ? 1 : 0) + 12) % 14;
 // Set the date
 document.querySelector("#date").textContent = data.date;
 
-// Add action listeners to buttons
+// Add action listeners to bottom row buttons
 let buttons = document.querySelector(".dietrow").children;
 for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", e=>dietEvent(e));
 }
+
+// Create alert buttons
+let alert = document.querySelector("#alert");
+for(let i = 0; i < data.links.length; i++){
+    let alertContent = data.links[i];
+    let alertButton = document.createElement("button");
+    alertButton.textContent = "Link: " + alertContent[0].replace(/\uFFFD/g, '');
+    alertButton.setAttribute("href", alertContent[1])
+    alertButton.addEventListener("click", e=>alertEvent(e));
+    alert.appendChild(alertButton);
+}
+
+// Set action event for schedule togger
+let toggler = document.querySelector("#alert #schedule-toggle");
+toggler.addEventListener("click", e=>scheduleToggleEvent());
 
 // Loop through the rows
 let menus = document.querySelectorAll(".row-menu");

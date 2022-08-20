@@ -1,7 +1,9 @@
 body{
     background-color: white;
     font-family: Verdana, sans-serif;
+    margin: 0%;
 }
+
 
 /* Banner */
 #banner{
@@ -117,11 +119,13 @@ li {
 }
 
 /* Hover Effect */
-.row-menu td:hover{
-    background-color: lightblue;
+@media only screen and (hover){
+    .row-menu td:hover{
+        background-color: lightblue;
+    }
 }
 
-/* Clikc effect */
+/* Click effect */
 #priority .clicked{
     background-color: lightgreen;
 }
@@ -148,4 +152,56 @@ li {
 
 .diet.selected{
     background-color:green;
+}
+
+
+/* Alerts */
+#alert{
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 100px;
+}
+
+#alert button{
+    font-size: max(10px, 1.2vw);
+    background-color: #4d99d2;
+    flex: 1 1 auto;
+    border: 1px solid black;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#alert #schedule-toggle{
+    min-width: 20%;
+    background-color: green;
+    text-decoration: none;
+}
+
+#alert button:active, #alert #schedule-toggle:active{
+    background-color: #195888;
+}
+
+#image-container{
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 5px solid black;
+}
+
+#schedule-pic{    
+    display: block;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.invisible{
+    visibility: hidden;
+    content-visibility: hidden;
 }

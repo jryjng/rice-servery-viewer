@@ -83,7 +83,7 @@ class ServeryMenu{
         let allLinks = []
         let links = await homepage.$$(".alert a")
         for(let i = 0; i < links.length; i++){
-            let item = await page.evaluate(elem => {
+            let item = await homepage.evaluate(elem => {
                 return [elem.textContent, elem.getAttribute("href")]
             }, links[i]);
             allLinks.push(item)
@@ -154,24 +154,25 @@ export async function main(){
   // Populate this object  
   let serveryMaster = {
     date: undefined,
+    links: undefined,
     serveries: undefined,
-    links: undefined
   };  
 
   // Populate date
   serveryMaster.date = ServeryMenu.getDate();
 
+  // Populate links
+  const browser = await launch({});
+  serveryMaster.links = await ServeryMenu.getServeryHeaders(browser);
+
   // Populate serveries
   let serveriesObj = [];
-  const browser = await launch({});
   for(let servery of serveries){
     serveriesObj.push(await ServeryMenu.readServery(browser, servery[0], servery[1]));
     console.log(`${servery[0]} complete`)
   }
   serveryMaster.serveries = serveriesObj;
 
-  // Populate links
-  serveryMaster.links = ServeryMenu.getServeryHeader(browser);
   
 
   browser.close();
