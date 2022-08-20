@@ -202,6 +202,5 @@ li {
 }
 
 .invisible{
-    visibility: hidden;
-    content-visibility: hidden;
+    display:none
 }
