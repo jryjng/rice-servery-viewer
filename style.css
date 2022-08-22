@@ -38,7 +38,6 @@ body{
 /* Table */
 table {
     border-spacing: 0;
-    border: 0.1rem solid;
     margin-left: 2%;
     margin-right: 2%;
     font-size: max(12px, 1.25vw);
@@ -47,11 +46,11 @@ table {
 
 th, td{
     min-width: 150px; 
-    border: 0.01rem solid black;
+    border: 1px solid black;
 }
 
 tr:nth-child(2n){
-    border-bottom: 0.2rem solid black;
+    border-bottom: 6px solid black;
     
 }
 
@@ -72,11 +71,11 @@ tr:nth-child(2n){
 .serveries{
     background-color: #001e6b;
     color:white;
-    border: 0.1rem solid black;
+    border: 1px solid black;
 }
 
 .serveries th{
-    border: 0.1rem solid black;
+    border: 1px solid black;
 }
 
 
@@ -86,7 +85,7 @@ tr:nth-child(2n){
     font-weight: bold;
     text-align: center;
     min-width: 50px;
-    border: 0.12rem solid black;
+    border: 1.5px solid black;
 }
 
 .subtext{
