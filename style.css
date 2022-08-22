@@ -179,6 +179,7 @@ li {
 }
 
 #schedule-toggle{
+    margin-top: 20px;
     width: 12%;
     height: 50px;
     float: right;
