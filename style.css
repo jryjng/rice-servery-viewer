@@ -72,6 +72,7 @@ tr:nth-child(2n){
     background-color: #001e6b;
     color:white;
     border: 1px solid black;
+    height: 45px;
 }
 
 .serveries th{
