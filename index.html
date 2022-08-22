@@ -10,18 +10,30 @@
 </head>
 <body>
   <div>
-    <div id="image-container" class="invisible">
-      <img id="schedule-pic" src="./rsc/sch.png"></img>
-    </div>
     <div id="banner">
-      <button id="schedule-toggle">Schedule</button>
       <span id="banner-text">
         <span id="head-text">Rice Servery Viewer</span>
         <span id="date-text">
           <span id="date">1/1</span>
         </span>
-        <div id="right-banner">Updates every Monday. Click on tiles to select them!</div>
+        <span id="right-banner">Updates every Monday. Click on tiles to select them!</span>
       </span>
+    </div>
+    <div class="dietrow">
+      <button id="schedule-toggle">Schedule</button>
+      <button id=".milk" class="diet">Milk</button>
+      <button id=".glut" class="diet">Gltn</button>
+      <button id=".nuts" class="diet">Nuts</button>
+      <button id=".tnut" class="diet">Tnut</button>
+      <button id=".vega" class="diet">Vegn</button>
+      <button id=".vegt" class="diet">Vegt</button>
+      <button id=".fish" class="diet">Fish</button>
+      <button id=".shlf" class="diet">Shlf</button>
+      <button id=".eggs" class="diet">Eggs</button>
+      <button id=".soy" class="diet">Soy</button>
+    </div>
+    <div id="image-container" class="invisible">
+      <img id="schedule-pic" src="./rsc/sch.png"></img>
     </div>
     <div>
       <table id="priority" width="96%">
@@ -152,19 +164,8 @@
         </div>
       </table>
     </div>
-    <div class="dietrow">
-      <button id=".milk" class="diet">Milk</button>
-      <button id=".glut" class="diet">Gltn</button>
-      <button id=".nuts" class="diet">Nuts</button>
-      <button id=".tnut" class="diet">Tnut</button>
-      <button id=".vega" class="diet">Vegn</button>
-      <button id=".vegt" class="diet">Vegt</button>
-      <button id=".fish" class="diet">Fish</button>
-      <button id=".shlf" class="diet">Shlf</button>
-      <button id=".eggs" class="diet">Eggs</button>
-      <button id=".soy" class="diet">Soy</button>
+    <div id="alert">
     </div>
-    <div id="alert"></div>
   </div>
 </body>
 </html>
