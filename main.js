@@ -128,31 +128,31 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
     // Use switch-case because this can change a lot
     let schedule = "";
     switch(timeIdx){
-        case 0: // Sunday Lunch
-            schedule = LUNCHTIME_SUNDAY;
-            break;
-        case 2: // Monday Lunch
+        case 0:
+        case 2:
         case 4:
         case 6:
         case 8:
-        case 10: // Friday Lunch
             schedule = LUNCHTIME_WEEKDAY;
             break;
-        case 12: // Saturday Lunch
-            schedule = LUNCHTIME_SATURDAY;
-            break;
-        case 1:  // Sunday Dinner
-            schedule = DINNERTIME_SUNDAY;
-            break;
-        case 3:  // Monday Lunch
+        case 1:
+        case 3:
         case 5:
         case 7:
         case 9:
-        case 11: // Friday Dinner
             schedule = DINNERTIME_WEEKDAY;
             break;
-        case 13: // Saturday Dinner
+        case 10:
+            schedule = LUNCHTIME_SATURDAY;
+            break;
+        case 11:
             schedule = DINNERTIME_SATURDAY;
+            break;
+        case 12:
+            schedule = LUNCHTIME_SUNDAY;
+            break;
+        case 13:
+            schedule = DINNERTIME_SUNDAY;
             break;
         default:
             schedule = "???";
