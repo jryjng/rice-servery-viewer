@@ -106,7 +106,7 @@ for(let i = 0; i < data.links.length; i++){
 }
 
 // Set action event for schedule togger
-let toggler = document.querySelector("#alert #schedule-toggle");
+let toggler = document.querySelector("#schedule-toggle");
 toggler.addEventListener("click", e=>scheduleToggleEvent());
 
 // Loop through the rows
