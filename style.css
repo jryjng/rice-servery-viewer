@@ -40,7 +40,7 @@ table {
     border-spacing: 0;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: max(12px, 1.25vw);
+    font-size: max(8px, 1em);
     border-collapse: collapse; 
 }
 
