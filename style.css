@@ -49,9 +49,8 @@ th, td{
     border: 1px solid black;
 }
 
-tr:nth-child(2n){
-    border-bottom: 6px solid black;
-    
+tr:nth-child(2n+1){
+    border-bottom: 6px solid black;   
 }
 
 
