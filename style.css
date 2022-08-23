@@ -40,9 +40,11 @@ table {
     border-spacing: 0;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: max(8px, 1em);
+    font-size: max(12px, 1em);
     border-collapse: collapse; 
 }
+
+
 
 th, td{
     min-width: 150px; 
