@@ -117,14 +117,17 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
 
     // Remove outdated schedules
     if (timeValue > timeIdx){
-        parent.removeChild(currentElem);
+        //parent.removeChild(currentElem);
+        currentElem.classList.add("hidden");
         continue;
     }
 
     // Update the current row
     let serveries = currentElem.children;
 
+
     // Insert times for mealtimes
+    // Also set flags
     // Use switch-case because this can change a lot
     let schedule = "";
     switch(timeIdx){
@@ -157,6 +160,7 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
         default:
             schedule = "???";
     }
+
     let mealtime = document.createElement("div");
     mealtime.textContent = schedule;
     mealtime.classList.add("subtext")
@@ -178,7 +182,6 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
 
         // Use another parent?
         let parent = document.createElement("ul");
-        // let parent = serveries[serveryIdx];
 
         // Create an element from each menu
         // The first entry will contain text. Everything else is part of its class
