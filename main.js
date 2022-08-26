@@ -86,7 +86,7 @@ let isDinner = now.getHours() > ENDLUNCH;
 let timeValue = (now.getDay() * 2 + (isDinner ? 1 : 0) + 12) % 14; 
 
 // Set the date
-document.querySelector("#date").textContent = data.date;
+document.querySelector("#date").textContent = "Last updated on " + data.date;
 
 // Add action listeners to bottom row buttons
 let buttons = document.querySelector(".dietrow").children;

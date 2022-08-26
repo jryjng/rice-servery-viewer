@@ -159,7 +159,8 @@ export async function main(){
   };  
 
   // Populate date
-  serveryMaster.date = ServeryMenu.getDate();
+  //serveryMaster.date = ServeryMenu.getDate();
+  serveryMaster.date = new Date().toDateString();
 
   // Populate links
   const browser = await launch({});
