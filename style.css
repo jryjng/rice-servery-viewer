@@ -94,7 +94,6 @@ tr:nth-child(2n+1){
     font-weight: bold;
     text-align: center;
     min-width: 50px;
-    border: 1.5px solid black;
 }
 
 .subtext{
