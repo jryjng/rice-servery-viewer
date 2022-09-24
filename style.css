@@ -181,7 +181,7 @@ li {
 }
 
 #schedule-toggle{
-    background-color: rgb(217, 90, 90);
+    background-color: rgba(126, 136, 59, 0.969);
 }
 
 #alert button:active, #schedule-toggle:active{
