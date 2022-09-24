@@ -52,7 +52,7 @@ table {
 
 th, td{
     min-width: 150px; 
-    border: 1px solid black;
+    border: 1px dotted black;
 }
 
 tr:nth-child(2n+1){
@@ -79,7 +79,6 @@ tr:nth-child(2n+1){
 .serveries{
     background-color: #001e6b;
     color:white;
-    border: 1px solid black;
     height: 45px;
 }
 
@@ -94,6 +93,7 @@ tr:nth-child(2n+1){
     font-weight: bold;
     text-align: center;
     min-width: 50px;
+    border-right: 1px solid black;
 }
 
 .subtext{
@@ -139,6 +139,11 @@ li {
     height: 100px;
 }
 
+.dietrow button{
+    border: 1px solid black;
+    border-top: 2px solid black;
+}
+
 .diet, #schedule-toggle{
     flex: 1 1 auto;
     margin: 0;
@@ -146,8 +151,6 @@ li {
     color: white;
     font-weight: bold;
     font-size: max(12px, 1.4vw);
-    border: dotted 1px black;
-    border-top: solid 2px black;
 }
 
 .diet.selected{
@@ -170,7 +173,6 @@ li {
     font-size: max(10px, 1.2vw);
     background-color: #001e6b;
     flex: 1 1 auto;
-    border: 1px solid black;
     color: white;
     margin: 0;
     font-weight: bold;
@@ -179,7 +181,7 @@ li {
 }
 
 #schedule-toggle{
-    background-color: green;
+    background-color: rgb(151, 62, 62);
 }
 
 #alert button:active, #schedule-toggle:active{
@@ -204,4 +206,15 @@ li {
 
 .invisible{
     display:none
+}
+
+table{
+    border: 1px solid black;
+}
+
+/* Make dietrow smaller on desktop */
+@media only screen and (hover){
+    .dietrow{
+        height: 40px;
+    }
 }
