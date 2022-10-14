@@ -14,12 +14,12 @@ body{
 }
 
 #head-text{
-    font-size: max(18px, 3.6vw);
+    font-size: 2.6em;
     margin-right: 1%;
 }
 
 #date-text{
-    font-size: max(12px, 1.4vw);
+    font-size: 1.2em;
 }
 
 #banner-text{
@@ -28,7 +28,6 @@ body{
 
 #right-banner{
     font-style: italic;
-    font-size: max(12px, 1.4vw);
     margin-top: auto;
     margin-left: 1%;
     white-space: nowrap ;
@@ -40,13 +39,13 @@ table {
     border-spacing: 0;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: max(12px, 1em);
+    font-size: 0.9em;
     border-collapse: collapse; 
 }
 
 @media not screen and (hover){
     table {
-        font-size: max(12px, 1.25vw);
+        font-size: 1.25em;
     }
 }
 
@@ -63,23 +62,12 @@ tr:nth-child(2n+1){
     display: none;
 }
 
-/* Scrollbar */
-.scroll {
-    overflow: scroll;
-    scrollbar-width: none;
-}
-
-.scroll::-webkit-scrollbar { 
-    width: 0;
-    height: 0;
-}
-
 
 /* Header */
 .serveries{
     background-color: #001e6b;
     color:white;
-    height: 45px;
+    height: 35px;
 }
 
 .serveries th{
@@ -150,7 +138,7 @@ li {
     background-color: #4d99d2;
     color: white;
     font-weight: bold;
-    font-size: max(12px, 1.4vw);
+    font-size: 1em;
 }
 
 .diet.selected{
@@ -163,14 +151,14 @@ li {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    height: 55px;
+    height: 40px;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
 }
 
 #alert button{
-    font-size: max(10px, 1.2vw);
+    font-size: 1em;
     background-color: #001e6b;
     flex: 1 1 auto;
     color: white;
@@ -215,6 +203,24 @@ table{
 /* Make dietrow smaller on desktop */
 @media only screen and (hover){
     .dietrow{
-        height: 40px;
+        height: 30px;
+    }
+}
+
+.ignore{
+    background-color: cyan;
+}
+
+
+/* Scrollbar */
+.scroll {
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+
+@media not screen and (hover){
+    table {
+        font-size: max(12px, 1.25vw);
     }
 }

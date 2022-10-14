@@ -115,6 +115,11 @@ let parent = menus[0].parentNode;
 for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
     let currentElem = menus[timeIdx];
 
+    // Skip if contains special attribute
+    if (currentElem.classList.contains("ignore")){
+        continue;
+    }
+
     // Remove outdated schedules
     if (timeValue > timeIdx){
         //parent.removeChild(currentElem);
@@ -168,6 +173,12 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
     
     // Update the menu for serveries
     for(let serveryIdx = 1; serveryIdx < serveries.length; serveryIdx++){
+        // Skip if special attribute
+        if(serveries[serveryIdx].classList.contains("ignore")){
+            continue;
+        }
+
+
         // Clear original text content
         serveries[serveryIdx].textContent = "";
 
