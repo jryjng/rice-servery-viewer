@@ -16,6 +16,8 @@ body{
 #head-text{
     font-size: 2.6em;
     margin-right: 1%;
+    display: inline;
+    font-weight: normal;
 }
 
 #date-text{
