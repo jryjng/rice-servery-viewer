@@ -86,15 +86,39 @@ let isDinner = now.getHours() > ENDLUNCH;
 let timeValue = (now.getDay() * 2 + (isDinner ? 1 : 0) + 12) % 14; 
 
 // Set the date
-document.querySelector("#date").textContent = "Last updated on " + data.date;
+document.querySelector("#date").textContent = "Last updated " + data.date;
 
-// Add action listeners to bottom row buttons
+
+// If not updated on the last monday
+let monday = new Date(now - (now.getDay()-1) * 8.64e+7);
+if (now.getDay() == 0){
+	monday = new Date(now - 6 * 8.64e+7);
+}
+monday.setHours(0, 0, 0, 0);
+
+
+// Check if out of date
+if (monday > new Date(data.date)){
+	console.log(monday)
+	document.querySelector("#date").textContent = "[OUTDATED] " + data.date;
+	document.querySelector("#date").style.backgroundColor = "red";
+	document.querySelector("#date").style.padding = "10px";
+}
+
+
+
+
+// Add action listeners to diet row buttons
 let buttons = document.querySelector(".dietrow").children;
 for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", e=>dietEvent(e));
 }
 
+
+
 // Create alert buttons
+// UNUSED
+/*
 let alert = document.querySelector("#alert");
 for(let i = 0; i < data.links.length; i++){
     let alertContent = data.links[i];
@@ -104,10 +128,13 @@ for(let i = 0; i < data.links.length; i++){
     alertButton.addEventListener("click", e=>alertEvent(e));
     alert.appendChild(alertButton);
 }
+*/
+
 
 // Set action event for schedule togger
-let toggler = document.querySelector("#schedule-toggle");
-toggler.addEventListener("click", e=>scheduleToggleEvent());
+// UNUSED
+//let toggler = document.querySelector("#schedule-toggle");
+//toggler.addEventListener("click", e=>scheduleToggleEvent());
 
 // Loop through the rows
 let menus = document.querySelectorAll(".row-menu");
