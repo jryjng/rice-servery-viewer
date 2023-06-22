@@ -2,6 +2,7 @@ body{
     background-color: white;
     font-family: Verdana, sans-serif;
     margin: 0%;
+	zoom: 90%;
 }
 
 
@@ -126,7 +127,7 @@ li {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    height: 100px;
+	height:80px;
 }
 
 .dietrow button{
@@ -141,10 +142,16 @@ li {
     color: white;
     font-weight: bold;
     font-size: 1em;
+	cursor: pointer;
 }
 
 .diet.selected{
     background-color:green;
+}
+
+.diet:hover{
+	background-color:rgb(0,128,0);
+	opacity:0.5;
 }
 
 
@@ -153,12 +160,13 @@ li {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    height: 40px;
+    height: 25px;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
 }
 
+/* Unused */
 #alert button{
     font-size: 1em;
     background-color: #001e6b;
@@ -169,6 +177,18 @@ li {
     text-align: center;
     text-decoration: underline;
 }
+
+/* In favor of */
+#alert div{
+    font-size: 1em;
+    background-color: #001e6b;
+    flex: 1 1 auto;
+    color: white;
+    margin: 0;
+	padding: 1px;
+}
+
+
 
 #schedule-toggle{
     background-color: rgba(126, 136, 59, 0.969);
@@ -205,7 +225,7 @@ table{
 /* Make dietrow smaller on desktop */
 @media only screen and (hover){
     .dietrow{
-        height: 30px;
+        height: 40px;
     }
 }
 
