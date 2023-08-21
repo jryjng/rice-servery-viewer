@@ -18,56 +18,67 @@ class ServeryMenu{
         let serveryMenu = new ServeryMenu(name);
         const page = await browser.newPage();
         await page.goto(link);
-    
-        // Parse the two different times of food
-        let ftimes = await page.$$(".weekly-menu")
-        for(let i = 0; i < ftimes.length; i++){
-            // Parse the 7 different menus of each week
-            let dtimes = await ftimes[i].$$("tbody");
-            for(let i2 = 0; i2 < dtimes.length; i2++){
-                // Parse menu
-                let menu = [];
-                let menuItems = await dtimes[i2].$$("td");
-                for(let i3 = 0; i3 < menuItems.length; i3++){
-                    // Parse an entry - the elements of an entry include the text and icons
-                    let menuEntry = [];
-                    let menuElem = await menuItems[i3].$$("div");
-                    for(let i4 = 0; i4 < menuElem.length; i4++){
-                        let item = await page.evaluate(elem => {
-                            let elemClass = elem.getAttribute("class");
-                            // Case: tag for food
-                            if(elemClass.indexOf("icon") != -1){
-                                switch(elemClass){
-                                    case "icons icon-only icons-eggs": return "eggs";
-                                    case "icons icon-only icons-fish": return "fish";
-                                    case "icons icon-only icons-gluten": return "glut";
-                                    case "icons icon-only icons-milk": return "milk";
-                                    case "icons icon-only icons-peanuts": return "nuts";
-                                    case "icons icon-only icons-shellfish": return "shlf";
-                                    case "icons icon-only icons-soy": return "soy";
-                                    case "icons icon-only icons-tree-nuts": return "tnut";
-                                    case "icons icon-only icons-vegan": return "vega";
-                                    case "icons icon-only icons-vegetarian": return "vegt";
-                                    default: return "?";
-                                }
-                            }
-                            // Case: normal entry
-                            return elem.textContent;
-                        }, menuElem[i4]);
-                        menuEntry.push(item);
-                    }
-                    menu.push(menuEntry);
+		
+		// Click on "view week"
+		// For some reason default element.click() doesnt work
+		let wb = await page.$('button[href="#lw-tab-2"]');
+		await page.evaluate(element => { element.click(); }, wb);
+		
+        // Menu divided into multiple containers
+		// The index of the container determines which day it is
+		// Here ftimes stores all of the different menus
+		let ftimes = await page.$$("div#block-weeklylunch > .views-element-container");
+		
+		// Skip the first one 
+        for(let i = 1; i < ftimes.length; i++){
+
+            // Query children of ftimes for child menu items
+            let menu = [];
+            let menuItems = await ftimes[i].$$(".mitem");
+            for(let i2 = 0; i2 < menuItems.length; i2++){
+
+                let menuEntry = [];
+
+                // The first entry will be the name (legacy)
+				let named = await menuItems[i2].$(".mitem >.mname");
+                menuEntry.push(await page.evaluate(elem => elem.textContent, named));
+
+                // Subsequent entries will be diet tags
+                let ttips = await menuItems[i2].$$(".mitem .tooltip");
+                for(let i3 = 0; i3 < ttips.length; i3++){
+                    let name = (await page.evaluate(elem => elem.getAttribute("data-content"), ttips[i3])).toLowerCase();
+					switch (name){
+						case "gluten": name = "glut";
+						break;
+						
+						case "peanuts": name = "nuts";
+						break;
+						
+						case "tree nuts": name = "tnut";
+						break;
+						
+						case "vegan": name = "vega";
+						break;
+						
+						case "vegetarian": name = "vegt";
+						break;
+						
+						case "shellfish": name = "shlf";
+						break;
+					}
+					menuEntry.push(name);
                 }
-                // Add a menu for a day+time to the list of all menus for the servery
-                if(i == 0){
-                    serveryMenu.addLunchMenu(menu);
-                }else if(i == 1){
-                    serveryMenu.addDinnerMenu(menu);
-                }else{
-                    console.log("ERROR: Invalid index");
-                }
+                menu.push(menuEntry);
+            }
+
+            // Add a menu for a day+time to the list of all menus for the servery (legacy)
+            if(i % 2 == 1){
+                serveryMenu.addLunchMenu(menu);
+            }else if(i % 2 == 0){
+                serveryMenu.addDinnerMenu(menu);
             }
         }
+		
         return serveryMenu;
     }
 
@@ -113,7 +124,6 @@ class ServeryMenu{
 }
 
 // Repository API
-// https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents
 async function writeToGithub(content, owner, repo, path, auth_key){
   // Authenicate and get REST
   const octokit = new Octokit({
@@ -145,16 +155,15 @@ export async function main(){
   // Get the menu of each servery
   // Store them in serviesObj
   let serveries = [
-    ["Seibel", "https://dining.rice.edu/seibel-servery/full-week-menu"], 
-    ["South", "https://dining.rice.edu/south-servery/full-week-menu"],
-    ["West", "https://dining.rice.edu/west-servery/full-week-menu"],
-    ["Baker", "https://dining.rice.edu/baker-college-kitchen/full-week-menu"],
-    ["North", "https://dining.rice.edu/north-servery/full-week-menu"]];
+    ["Seibel", "https://dining.rice.edu/seibel-servery"], 
+    ["South", "https://dining.rice.edu/south-servery"],
+    ["West", "https://dining.rice.edu/west-servery"],
+    ["Baker", "https://dining.rice.edu/baker-college-kitchen"],
+    ["North", "https://dining.rice.edu/north-servery"]];
 
   // Populate this object  
   let serveryMaster = {
     date: undefined,
-    links: undefined,
     serveries: undefined,
   };  
 
@@ -164,7 +173,7 @@ export async function main(){
 
   // Populate links
   const browser = await launch({});
-  serveryMaster.links = await ServeryMenu.getServeryHeaders(browser);
+  // serveryMaster.links = await ServeryMenu.getServeryHeaders(browser);
 
   // Populate serveries
   let serveriesObj = [];
@@ -181,8 +190,7 @@ export async function main(){
   // Convert serviesObj into a javascript expression
   // Send the file to github in base64
   dotenv.config();
-  writeToGithub(ServeryMenu.toData(serveryMaster), 
-  'jryjng', 'rice-servery-viewer', 'dat.js', process.env.BOT_GITHUB_KEY);
+  writeToGithub(ServeryMenu.toData(serveryMaster),  process.env.USER_ID, 'rice-servery-viewer', 'dat.js', process.env.BOT_GITHUB_KEY);
 
 }
 await main();
