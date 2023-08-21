@@ -1,6 +1,6 @@
 // Food times
 const LUNCHTIME_WEEKDAY = "11:30am-1:30pm";
-const DINNERTIME_WEEKDAY = "5:30pm-7:30pm";
+const DINNERTIME_WEEKDAY = "5:30pm-8:000pm";
 const LUNCHTIME_SATURDAY = "11:30am-2:00pm";
 const DINNERTIME_SATURDAY = "5:00pm-7:30pm";
 const LUNCHTIME_SUNDAY = "11:30am-2:00pm";
