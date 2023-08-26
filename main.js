@@ -1,15 +1,25 @@
 // Food times
-const LUNCHTIME_WEEKDAY = "11:30am-1:30pm";
-const DINNERTIME_WEEKDAY = "5:30pm-8:000pm";
-const LUNCHTIME_SATURDAY = "11:30am-2:00pm";
-const DINNERTIME_SATURDAY = "5:00pm-7:30pm";
-const LUNCHTIME_SUNDAY = "11:30am-2:00pm";
-const DINNERTIME_SUNDAY = "5:00pm-7:30pm";
+const LUNCHTIME_WEEKDAY = "11:30am- 01:30pm";
+const DINNERTIME_WEEKDAY = "05:30pm- 08:00pm";
+const LUNCHTIME_SATURDAY = "11:30am- 02:00pm";
+const DINNERTIME_SATURDAY = "05:00pm- 08:00pm";
+const LUNCHTIME_SUNDAY = "11:30am- 02:00pm";
+const DINNERTIME_SUNDAY = "05:00pm- 08:00pm";
 
 // Munch and Breakfeast
 const BREAKFEAST_WEEKDAY = "7:30am-10:00am"
 const BREAKFEAST_WEEKEND = "8:00am-10:30am"
 const MUNCH_WEEKDAY = "2:15pm-4:15pm"
+
+// Don't create entries for
+IGNORE_SET = ["Cheese", "Steamed Rice", "Pepperoni", 
+			  "Alfredo Sauce", "Jollof Rice", "Spanish Rice", 
+			  "Tomatillo Rice", "Greek Lemon Rice", "Alfredo Sauce",
+			  "Bacon Ranch", "Roasted Vegetables", "Ginger & Turmeric Rice", "Yellow Rice",
+			  "Italian Sausage Supreme", "Chips"]
+PIZZA_RULE = true;
+
+
 
 // Lunch cutoff will be at 2pm
 // Munch cutoff will be at 5pm
@@ -224,9 +234,20 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
         // Create an element from each menu
         // The first entry will contain text. Everything else is part of its class
         for(let foodIdx = 0; foodIdx < menu.length; foodIdx++){
+			// Skip if contains ignored
+			if (IGNORE_SET.includes(menu[foodIdx][0])) {
+				continue;
+			}
+			
+			// 
+			if (PIZZA_RULE && menu[foodIdx][0].toLowerCase().includes("pizza")) {
+				continue;
+			}
+			
+			
             let elem = document.createElement("li");
             let food = menu[foodIdx];
-            elem.textContent = food[0];
+            elem.textContent = food[0].replace(new RegExp("with", "gi"), "w/").replace("�", "e")
             for(let classIdx = 1; classIdx < food.length; classIdx++){
                 elem.classList.add(food[classIdx]);
             }
