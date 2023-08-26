@@ -53,7 +53,6 @@ table {
 }
 
 th, td{
-    min-width: 150px; 
     border: 1px dotted black;
 }
 
@@ -83,8 +82,12 @@ tr:nth-child(2n+1){
     background-color: lightgray;
     font-weight: bold;
     text-align: center;
-    min-width: 50px;
+	margin: 0px;
+	display: hidden;
+	word-wrap: break-word;
     border-right: 1px solid black;
+	white-space: pre-line;
+	width: 100px;
 }
 
 .subtext{
@@ -104,7 +107,7 @@ ul {
 }
 
 li {
-    margin: 8% 10% 8% 0%;
+    margin: 10px 0% 10px 0%;
     margin-left: max(20px, 10%);
 }
 
