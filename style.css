@@ -42,7 +42,7 @@ table {
     border-spacing: 0;
     margin-left: 2%;
     margin-right: 2%;
-    font-size: 0.9em;
+    font-size: 0.93em;
     border-collapse: collapse; 
 }
 
@@ -246,6 +246,7 @@ table{
 
 @media not screen and (hover){
     table {
-        font-size: max(12px, 1.25vw);
+        font-size: max(15px, 1.25vw);
     }
 }
+
