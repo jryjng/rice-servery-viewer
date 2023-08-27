@@ -235,7 +235,7 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
         // The first entry will contain text. Everything else is part of its class
         for(let foodIdx = 0; foodIdx < menu.length; foodIdx++){
 			// Skip if contains ignored
-			if (IGNORE_SET.includes(menu[foodIdx][0])) {
+			if (IGNORE_SET.includes(menu[foodIdx][0].trim())) {
 				continue;
 			}
 			
