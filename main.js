@@ -13,10 +13,11 @@ const MUNCH_WEEKDAY = "2:15pm-4:15pm"
 
 // Don't create entries for
 IGNORE_SET = ["Cheese", "Steamed Rice", "Pepperoni", 
-			  "Alfredo Sauce", "Jollof Rice", "Spanish Rice", 
-			  "Tomatillo Rice", "Greek Lemon Rice", "Alfredo Sauce",
-			  "Bacon Ranch", "Roasted Vegetables", "Ginger & Turmeric Rice", "Yellow Rice",
-			  "Italian Sausage Supreme", "Chips"]
+	      "Alfredo Sauce", "Jollof Rice", "Spanish Rice", 
+	      "Tomatillo Rice", "Greek Lemon Rice", "Alfredo Sauce",
+	      "Bacon Ranch", "Roasted Vegetables", "Ginger & Turmeric Rice", "Yellow Rice",
+	      "Italian Sausage Supreme", "Chips", "Vegetable of The Day", "Basmati Rice", 
+	      "Fiesta Rice", "Rice w/ Roasted Corn", "Baked Beans", "Black Beans", "Ranchero Beans", "Refried Beans"]
 PIZZA_RULE = true;
 
 
