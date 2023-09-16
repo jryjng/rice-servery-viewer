@@ -251,7 +251,7 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
 			continue;
 		}
 
-		existing.push(menu[foodIdx][0].trim())
+		existing.add(menu[foodIdx][0].trim())
 			
 			
             let elem = document.createElement("li");
