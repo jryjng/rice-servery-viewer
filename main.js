@@ -229,6 +229,7 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
         }else{
             menu = data.serveries[serveryIdx - 1]["lunch"][Math.floor(timeIdx / 2)];
         }
+	menu.sort();
 
         // Use another parent?
         let parent = document.createElement("ul");
@@ -238,20 +239,21 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
 	let existing = new Set();
         for(let foodIdx = 0; foodIdx < menu.length; foodIdx++){
 		// Skip if contains ignored
-		if (IGNORE_SET.includes(menu[foodIdx][0].trim())) {
+		let foodname = menu[foodIdx][0].trim()
+		if (IGNORE_SET.includes(foodname)) {
 			continue;
 		}
 		
 		// 
-		if (PIZZA_RULE && menu[foodIdx][0].toLowerCase().includes("pizza")) {
+		if (PIZZA_RULE && foodname.toLowerCase().includes("pizza")) {
 			continue;
 		}
 
-		if (existing.has(menu[foodIdx][0].trim())) {
+		if (existing.has(foodname.trim())) {
 			continue;
 		}
 
-		existing.add(menu[foodIdx][0].trim())
+		existing.add(foodname)
 			
 			
             let elem = document.createElement("li");
