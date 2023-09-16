@@ -17,7 +17,8 @@ IGNORE_SET = ["Cheese", "Steamed Rice", "Pepperoni",
 	      "Tomatillo Rice", "Greek Lemon Rice", "Alfredo Sauce",
 	      "Bacon Ranch", "Roasted Vegetables", "Ginger & Turmeric Rice", "Yellow Rice",
 	      "Italian Sausage Supreme", "Chips", "Vegetable of The Day", "Basmati Rice", 
-	      "Fiesta Rice", "Rice w/ Roasted Corn", "Baked Beans", "Black Beans", "Ranchero Beans", "Refried Beans"]
+	      "Fiesta Rice", "Rice w/ Roasted Corn", "Baked Beans", "Black Beans", "Ranchero Beans", 
+	      "Refried Beans", "Rice w/ Roasted Corn"]
 PIZZA_RULE = true;
 
 
@@ -234,16 +235,23 @@ for(let timeIdx = 0; timeIdx < menus.length; timeIdx++){
 
         // Create an element from each menu
         // The first entry will contain text. Everything else is part of its class
+	let existing = new Set();
         for(let foodIdx = 0; foodIdx < menu.length; foodIdx++){
-			// Skip if contains ignored
-			if (IGNORE_SET.includes(menu[foodIdx][0].trim())) {
-				continue;
-			}
-			
-			// 
-			if (PIZZA_RULE && menu[foodIdx][0].toLowerCase().includes("pizza")) {
-				continue;
-			}
+		// Skip if contains ignored
+		if (IGNORE_SET.includes(menu[foodIdx][0].trim())) {
+			continue;
+		}
+		
+		// 
+		if (PIZZA_RULE && menu[foodIdx][0].toLowerCase().includes("pizza")) {
+			continue;
+		}
+
+		if (existing.has(menu[foodIdx][0].trim())) {
+			continue;
+		}
+
+		existing.push(menu[foodIdx][0].trim())
 			
 			
             let elem = document.createElement("li");
